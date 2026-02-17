@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Funds</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔄 Transfer Funds</h1>
+
+        <form action="TransferServlet" method="POST">
+            <div class="form-group">
+                <label for="fromAccount">From Account Number:</label>
+                <input type="number" id="fromAccount" name="fromAccount" required placeholder="Source account number">
+            </div>
+
+            <div class="form-group">
+                <label for="toAccount">To Account Number:</label>
+                <input type="number" id="toAccount" name="toAccount" required placeholder="Destination account number">
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Transfer Amount (₹):</label>
+                <input type="number" id="amount" name="amount" step="0.01" min="0.01" required
+                    placeholder="Enter amount to transfer">
+            </div>
+
+            <button type="submit" class="btn">Transfer</button>
+        </form>
+
+        <div class="info-box">
+            <h3>💡 RequestDispatcher Demonstration</h3>
+            <p>This operation demonstrates <code>RequestDispatcher.forward()</code></p>
+            <p><strong>What will happen:</strong></p>
+            <ul>
+                <li>Servlet processes the transfer</li>
+                <li>Sets request attributes with transfer details</li>
+                <li>Uses <code>RequestDispatcher.forward()</code> to confirmation page</li>
+                <li><strong>URL will NOT change</strong> (still shows /TransferServlet)</li>
+                <li>Request attributes are preserved and accessible</li>
+                <li>This is <strong>server-side forwarding</strong></li>
+            </ul>
+            <p><strong>Compare with:</strong> Try the logout feature to see <code>sendRedirect()</code> where URL DOES
+                change!</p>
+        </div>
+
+        <div class="lifecycle">
+            <h3>🆚 RequestDispatcher vs SendRedirect</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">Feature</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">RequestDispatcher</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">SendRedirect</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Location</strong></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Server-side</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Client-side</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>URL Change</strong></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">No</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Yes</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Requests</strong></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">One request</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Two requests</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Attributes</strong></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Preserved</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Lost</td>
+                </tr>
+            </table>
+        </div>
+
+        <p><a href="index.html" class="btn">← Back to Home</a></p>
+        <p><a href="LogoutServlet" class="btn">🚪 Logout (See SendRedirect)</a></p>
+    </div>
+</body>
+
+</html>

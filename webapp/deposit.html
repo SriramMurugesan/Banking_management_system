@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Money</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>💰 Deposit Money</h1>
+
+        <form action="DepositServlet" method="POST">
+            <div class="form-group">
+                <label for="accountNumber">Account Number:</label>
+                <input type="number" id="accountNumber" name="accountNumber" required
+                    placeholder="Enter account number">
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Deposit Amount (₹):</label>
+                <input type="number" id="amount" name="amount" step="0.01" min="0.01" required
+                    placeholder="Enter amount to deposit">
+            </div>
+
+            <button type="submit" class="btn">Deposit</button>
+        </form>
+
+        <div class="info-box">
+            <h3>💡 Servlet-JDBC Integration</h3>
+            <p>When you submit this form:</p>
+            <ul>
+                <li>Servlet receives the POST request</li>
+                <li>Validates the input data</li>
+                <li>Uses <strong>AccountDAO</strong> to update database</li>
+                <li>Executes SQL UPDATE statement via JDBC</li>
+                <li>Returns success/error response</li>
+            </ul>
+        </div>
+
+        <p><a href="index.html" class="btn">← Back to Home</a></p>
+    </div>
+</body>
+
+</html>

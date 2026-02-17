@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    
+    <display-name>Banking Web Application</display-name>
+    <description>Servlet-based Banking Application with JDBC</description>
+    
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    
+    <!-- Servlet Declarations -->
+    
+    <!-- AccountServlet - Lifecycle Demo -->
+    <servlet>
+        <servlet-name>AccountServlet</servlet-name>
+        <servlet-class>com.banking.servlets.AccountServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountServlet</servlet-name>
+        <url-pattern>/AccountServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- CreateAccountServlet -->
+    <servlet>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <servlet-class>com.banking.servlets.CreateAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <url-pattern>/CreateAccountServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ViewAccountServlet -->
+    <servlet>
+        <servlet-name>ViewAccountServlet</servlet-name>
+        <servlet-class>com.banking.servlets.ViewAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewAccountServlet</servlet-name>
+        <url-pattern>/ViewAccountServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- DepositServlet -->
+    <servlet>
+        <servlet-name>DepositServlet</servlet-name>
+        <servlet-class>com.banking.servlets.DepositServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepositServlet</servlet-name>
+        <url-pattern>/DepositServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- WithdrawServlet -->
+    <servlet>
+        <servlet-name>WithdrawServlet</servlet-name>
+        <servlet-class>com.banking.servlets.WithdrawServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WithdrawServlet</servlet-name>
+        <url-pattern>/WithdrawServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- TransferServlet -->
+    <servlet>
+        <servlet-name>TransferServlet</servlet-name>
+        <servlet-class>com.banking.servlets.TransferServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TransferServlet</servlet-name>
+        <url-pattern>/TransferServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- LogoutServlet -->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.banking.servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.html</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error500.html</location>
+    </error-page>
+    
+</web-app>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Application - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏦 Banking Management System</h1>
+            <p>Servlet-based Web Application with JDBC</p>
+        </div>
+
+        <div class="info-box">
+            <h3>📚 Learning Objectives</h3>
+            <p>This application demonstrates:</p>
+            <ul>
+                <li><strong>Servlet Lifecycle</strong> - init(), service(), destroy()</li>
+                <li><strong>doGet() vs doPost()</strong> - HTTP method handling</li>
+                <li><strong>RequestDispatcher</strong> - Server-side forwarding</li>
+                <li><strong>SendRedirect</strong> - Client-side redirection</li>
+                <li><strong>Servlet-JDBC Integration</strong> - Database operations</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Banking Operations</h2>
+        <div class="nav-grid">
+            <a href="createAccount.html" class="nav-card">
+                <h3>➕ Create Account</h3>
+                <p>Open a new savings or current account</p>
+                <small>Demonstrates: doPost()</small>
+            </a>
+
+            <a href="viewAccount.html" class="nav-card">
+                <h3>👁️ View Account</h3>
+                <p>Check account details and balance</p>
+                <small>Demonstrates: doGet()</small>
+            </a>
+
+            <a href="deposit.html" class="nav-card">
+                <h3>💰 Deposit Money</h3>
+                <p>Add funds to your account</p>
+                <small>Demonstrates: doPost() + JDBC</small>
+            </a>
+
+            <a href="withdraw.html" class="nav-card">
+                <h3>💸 Withdraw Money</h3>
+                <p>Withdraw funds from your account</p>
+                <small>Demonstrates: doPost() + Validation</small>
+            </a>
+
+            <a href="transfer.html" class="nav-card">
+                <h3>🔄 Transfer Funds</h3>
+                <p>Transfer money between accounts</p>
+                <small>Demonstrates: RequestDispatcher</small>
+            </a>
+
+            <a href="AccountServlet" class="nav-card">
+                <h3>🔄 Lifecycle Demo</h3>
+                <p>See servlet lifecycle in action</p>
+                <small>Demonstrates: init(), service(), destroy()</small>
+            </a>
+        </div>
+
+        <h2>🎓 Servlet Concepts</h2>
+        <div class="account-details">
+            <h3>1. Servlet Lifecycle Methods</h3>
+            <p><strong>init()</strong> - Called once when servlet loads</p>
+            <p><strong>service()</strong> - Called for every request</p>
+            <p><strong>destroy()</strong> - Called when servlet unloads</p>
+            <p><a href="AccountServlet" class="btn">See Lifecycle Demo</a></p>
+        </div>
+
+        <div class="account-details">
+            <h3>2. doGet() vs doPost()</h3>
+            <p><strong>doGet()</strong> - Retrieve/view data (idempotent)</p>
+            <p><strong>doPost()</strong> - Submit/create data (non-idempotent)</p>
+            <p>Try creating an account (POST) and viewing it (GET)!</p>
+        </div>
+
+        <div class="account-details">
+            <h3>3. RequestDispatcher vs SendRedirect</h3>
+            <p><strong>RequestDispatcher</strong> - Server-side forward, URL doesn't change</p>
+            <p><strong>SendRedirect</strong> - Client-side redirect, URL changes</p>
+            <p>Try the transfer operation to see RequestDispatcher in action!</p>
+        </div>
+
+        <div class="footer">
+            <p>Built with Java Servlets, JDBC, and MySQL</p>
+            <p>Check the console logs to see servlet lifecycle methods!</p>
+        </div>
+    </div>
+
+    <script>
+        // Check if redirected from logout
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('logout') === 'success') {
+            alert('✅ Logged out successfully! (via sendRedirect)');
+        }
+    </script>
+</body>
+</html>
