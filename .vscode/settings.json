@@ -1,0 +1,11 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "mysql-connector-j-8.0.33.jar",
+        "/home/sriram/Desktop/sriram_repos/Java_learnings/lib/servlet-api.jar"
+    ],
+    "java.source.path": [
+        "."
+    ],
+    "java.output.path": "bin"
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Create New Account</h2>
+        <form action="createAccount" method="POST">
+            <div class="form-group">
+                <label>Account Number:</label>
+                <input type="number" name="accountNumber" required>
+            </div>
+            <div class="form-group">
+                <label>Holder Name:</label>
+                <input type="text" name="holderName" required>
+            </div>
+            <div class="form-group">
+                <label>Initial Balance:</label>
+                <input type="number" name="balance" required>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Account Type:</label>
+                <select name="type">
+                    <option value="Savings">Savings</option>
+                    <option value="Current">Current</option>
+                </select>
+            </div>
+            <button type="submit" class="button">Create</button>
+        </form>
+        <br>
+        <a href="index.html">Back to Home</a>
+    </div>
+</body>
+
+</html>
