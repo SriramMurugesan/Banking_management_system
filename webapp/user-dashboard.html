@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <h1>🏦 SecureBank</h1>
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div>
+                        <div style="font-size: 14px; opacity: 0.9;">Welcome back</div>
+                        <div style="font-size: 16px; font-weight: 600;" id="userName">Loading...</div>
+                    </div>
+                    <a href="LogoutServlet" class="logout-btn">Logout</a>
+                </div>
+            </div>
+
+            <div class="dashboard-body">
+                <div class="welcome-message">
+                    <h2>Welcome to your Banking Dashboard</h2>
+                    <p>Manage your account, transfer funds, and view your balance securely.</p>
+                </div>
+
+                <div class="actions-grid">
+                    <a href="viewAccount.html" class="action-card">
+                        <div class="icon">👁️</div>
+                        <h3>View Account</h3>
+                        <p>Check your account details and current balance</p>
+                    </a>
+
+                    <a href="deposit.html" class="action-card">
+                        <div class="icon">💰</div>
+                        <h3>Deposit Money</h3>
+                        <p>Add funds to your account</p>
+                    </a>
+
+                    <a href="withdraw.html" class="action-card">
+                        <div class="icon">💸</div>
+                        <h3>Withdraw Money</h3>
+                        <p>Withdraw funds from your account</p>
+                    </a>
+
+                    <a href="transfer.html" class="action-card">
+                        <div class="icon">🔄</div>
+                        <h3>Transfer Funds</h3>
+                        <p>Transfer money to another account</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get user info from session (this would normally come from the server)
+        // For now, we'll use a placeholder
+        window.onload = function () {
+            // In a real app, this would be populated by JSP or server-side rendering
+            // For demo purposes, we'll show a generic message
+            const userName = sessionStorage.getItem('fullName') || 'Customer';
+            document.getElementById('userName').textContent = userName;
+        };
+    </script>
+</body>
+
+</html>

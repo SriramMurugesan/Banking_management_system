@@ -40,15 +40,47 @@ public class DatabaseUtil {
                 // Use the database
                 stmt.executeUpdate("USE bankdb");
 
-                // Create table if it doesn't exist
-                String createTableSql = "CREATE TABLE IF NOT EXISTS accounts (" +
+                // Create accounts table
+                String createAccountsTable = "CREATE TABLE IF NOT EXISTS accounts (" +
                         "account_number INT PRIMARY KEY, " +
                         "holder_name VARCHAR(100), " +
                         "balance DOUBLE, " +
                         "email VARCHAR(100), " +
                         "account_type VARCHAR(20))";
-                stmt.executeUpdate(createTableSql);
+                stmt.executeUpdate(createAccountsTable);
                 System.out.println("[DatabaseUtil] Table 'accounts' is ready!");
+
+                // Create users table for customer authentication
+                String createUsersTable = "CREATE TABLE IF NOT EXISTS users (" +
+                        "user_id INT PRIMARY KEY AUTO_INCREMENT, " +
+                        "username VARCHAR(50) UNIQUE, " +
+                        "password VARCHAR(100), " +
+                        "full_name VARCHAR(100), " +
+                        "email VARCHAR(100), " +
+                        "account_number INT, " +
+                        "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
+                        "FOREIGN KEY (account_number) REFERENCES accounts(account_number))";
+                stmt.executeUpdate(createUsersTable);
+                System.out.println("[DatabaseUtil] Table 'users' is ready!");
+
+                // Create admins table for bank staff authentication
+                String createAdminsTable = "CREATE TABLE IF NOT EXISTS admins (" +
+                        "admin_id INT PRIMARY KEY AUTO_INCREMENT, " +
+                        "username VARCHAR(50) UNIQUE, " +
+                        "password VARCHAR(100), " +
+                        "full_name VARCHAR(100), " +
+                        "email VARCHAR(100), " +
+                        "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
+                stmt.executeUpdate(createAdminsTable);
+                System.out.println("[DatabaseUtil] Table 'admins' is ready!");
+
+                // Create default admin account if not exists
+                String insertAdmin = "INSERT IGNORE INTO admins (username, password, full_name, email) " +
+                        "VALUES ('admin', 'admin123', 'System Administrator', 'admin@bank.com')";
+                stmt.executeUpdate(insertAdmin);
+                System.out
+                        .println("[DatabaseUtil] Default admin account created (username: admin, password: admin123)");
+
                 System.out.println("[DatabaseUtil] ✅ Database initialized successfully on application startup!");
 
             }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <h1>🏦 SecureBank - Admin Panel</h1>
+                <div class="user-info">
+                    <div class="user-avatar">🔐</div>
+                    <div>
+                        <div style="font-size: 14px; opacity: 0.9;">Administrator</div>
+                        <div style="font-size: 16px; font-weight: 600;" id="adminName">Admin</div>
+                    </div>
+                    <a href="LogoutServlet" class="logout-btn">Logout</a>
+                </div>
+            </div>
+
+            <div class="dashboard-body">
+                <div class="welcome-message">
+                    <h2>Admin Control Panel</h2>
+                    <p>Manage customer accounts, create new accounts, and oversee banking operations.</p>
+                </div>
+
+                <div class="actions-grid">
+                    <a href="createAccount.html" class="action-card">
+                        <div class="icon">➕</div>
+                        <h3>Create Account</h3>
+                        <p>Open new customer accounts</p>
+                    </a>
+
+                    <a href="viewAccount.html" class="action-card">
+                        <div class="icon">👁️</div>
+                        <h3>View Account</h3>
+                        <p>Search and view customer account details</p>
+                    </a>
+
+                    <a href="deposit.html" class="action-card">
+                        <div class="icon">💰</div>
+                        <h3>Deposit Money</h3>
+                        <p>Process customer deposits</p>
+                    </a>
+
+                    <a href="withdraw.html" class="action-card">
+                        <div class="icon">💸</div>
+                        <h3>Withdraw Money</h3>
+                        <p>Process customer withdrawals</p>
+                    </a>
+
+                    <a href="transfer.html" class="action-card">
+                        <div class="icon">🔄</div>
+                        <h3>Transfer Funds</h3>
+                        <p>Process fund transfers between accounts</p>
+                    </a>
+
+                    <div class="action-card" style="opacity: 0.6; cursor: not-allowed;">
+                        <div class="icon">📊</div>
+                        <h3>Reports</h3>
+                        <p>View banking statistics (Coming Soon)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const adminName = sessionStorage.getItem('fullName') || 'Administrator';
+            document.getElementById('adminName').textContent = adminName;
+        };
+    </script>
+</body>
+
+</html>
